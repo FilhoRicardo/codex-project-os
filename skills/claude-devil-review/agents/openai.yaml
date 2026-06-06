@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Devil Review"
+  short_description: "Have Claude challenge Codex plans before execution."
+  default_prompt: "Run Claude devil review on this plan before implementation."

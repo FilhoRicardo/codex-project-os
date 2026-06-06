@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Initiator"
+  short_description: "Start managed Codex projects consistently."
+  default_prompt: "Initiate a managed project for [idea]."
