@@ -23,8 +23,8 @@ Ask for missing values before creating files when they cannot be inferred safely
 - Project name and folder slug.
 - Intended outcome in one sentence.
 - Template type: `codex-managed` by default, `codex-basic` for local experiments.
-- GitHub preference: create repo, link existing repo, or mark `Create/link required`.
-- Linear preference: create project/issue, link existing project/issue, or mark `Create/link required`.
+- GitHub preference only when the default is wrong. Default for managed projects: create a private GitHub repo.
+- Linear preference only when the default is wrong. Default for managed projects: create a Linear project and first issue.
 
 ## Stage 0: Clarify And Challenge
 
@@ -47,11 +47,13 @@ Skip this stage only when the user explicitly says `local-only`, `basic`, or `sk
 5. Initialize `MEMORY.md` with project-specific headings only: Contacts, Source Links, Key Decisions, and Durable Outcomes. Do not copy root memory.
 6. Keep or create `resources/` inside the project folder.
 7. Keep `PLAN.md` and `PLAN-REVIEW-LOG.md` for managed projects, even before the first review.
-8. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
-9. Update the Routing Map in root `AGENTS.md`.
-10. If requested and tools are available, create/link the GitHub repo and Linear project/first issue. If not available, write `Create/link required`; do not invent URLs.
-11. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, key decisions, and constraints.
-12. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus both Routing Maps.
+8. For managed projects, create a private GitHub repo by default unless the user asked for public, existing repo, or local-only. Use the project folder slug as the default repo name.
+9. For managed projects, create a Linear project and first issue by default unless the user asked to link existing Linear records or skip Linear.
+10. If GitHub or Linear tools are unavailable, write `Create/link required` and state the blocker clearly; do not invent URLs.
+11. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
+12. Update the Routing Map in root `AGENTS.md`.
+13. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, key decisions, and constraints.
+14. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus the Routing Map.
 
 ## Repair Workflow
 
@@ -66,10 +68,12 @@ Use this when a project already exists but is missing scaffold pieces:
 ## Linear And GitHub Rules
 
 - Always keep four fields visible: project folder, GitHub repo, Linear project, Linear issue.
+- Managed projects create GitHub and Linear records by default.
+- Default GitHub visibility is private; use public only when the user explicitly asks.
 - For non-trivial code work, a managed project should have a Linear issue before implementation.
 - GitHub is the code and PR source of truth.
 - Linear is the roadmap, issue scope, and acceptance criteria source of truth.
-- If a link is missing, ask whether to create or link it unless the user explicitly says the work is local-only.
+- If a link is missing, create or link it unless the user explicitly says the work is local-only.
 
 ## Memory Rules
 
@@ -89,5 +93,5 @@ Finish only when:
 - Managed projects have either completed `claude-devil-review` or the final response says why it was skipped.
 - `PROJECTS.md` has a current row.
 - Root `AGENTS.md` Routing Map includes the project.
-- Missing GitHub/Linear links are either filled or explicitly marked `Create/link required`.
+- Managed projects have GitHub/Linear links filled unless tool access failed or the user explicitly opted out; missing links are explicitly marked `Create/link required`.
 - Project `MEMORY.md` has been updated, or the final response says why no durable memory update was needed.

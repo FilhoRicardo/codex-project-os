@@ -54,6 +54,8 @@ Then open Codex in that root folder and say:
 Initiate a managed project for [your idea]
 ```
 
+Managed projects create a private GitHub repo, Linear project, and first Linear issue by default. Say `local-only`, `basic`, `skip GitHub`, `skip Linear`, or `public GitHub repo` when you want a different path.
+
 ## The Managed Project Shape
 
 ```text

@@ -39,8 +39,16 @@ Use this shape in root `AGENTS.md`:
 
 - Do not invent GitHub or Linear URLs.
 - Do not copy root `MEMORY.md` into projects.
-- Use `Create/link required` when a managed project still needs a repo or Linear project.
+- Managed projects create a private GitHub repo and Linear project by default.
+- Use `Create/link required` only when tool access fails, the user explicitly opts out, or an existing external record must be linked later.
 - Keep changes surgical: template copy, placeholder replacement, registry row, Routing Map row.
+
+## Default Creation Targets
+
+- GitHub owner: infer from the authenticated `gh` account unless the user specifies another owner.
+- GitHub visibility: private by default; public only when explicitly requested.
+- Linear team: use the configured/default team unless the user specifies another team.
+- First Linear issue title: `Initialize [Project Name]`.
 
 ## Plan Discipline
 

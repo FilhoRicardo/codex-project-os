@@ -21,6 +21,7 @@ Create a clean active project, copy the generic scaffold pieces, sanitize local 
 - Publish as a template repo rather than pushing the real Projects folder.
 - Keep private Linear management local and out of the public repo.
 - Include skills as copyable Codex skill folders.
+- Managed project initiation creates GitHub and Linear records by default; GitHub visibility defaults to private for safety.
 
 ## Risks And Unknowns
 
@@ -46,3 +47,4 @@ Create a clean active project, copy the generic scaffold pieces, sanitize local 
 - Create public GitHub repo.
 - Create maintainer Linear project privately.
 - Update local root registry and memory.
+- Future managed projects should create a private GitHub repo, Linear project, and first Linear issue by default.

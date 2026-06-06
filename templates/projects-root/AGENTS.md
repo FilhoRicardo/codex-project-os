@@ -11,6 +11,7 @@ When the user says "remember this," write durable facts to `MEMORY.md` immediate
 Active project folders live in `active/`. Before project work:
 
 - When initiating a new project or repairing a scaffold, use the `project-initiator` skill if available.
+- Managed projects create GitHub and Linear records by default: private GitHub repo, Linear project, and first Linear issue unless the user explicitly opts out or links existing records.
 - For managed projects, Codex is the executor and Claude is the devil's advocate.
 - Do not mirror `CLAUDE.md` from `AGENTS.md`.
 - Use `PROJECTS.md` and the Routing Map to identify the project folder.

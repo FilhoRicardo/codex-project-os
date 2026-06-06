@@ -17,9 +17,11 @@
 5. Claude challenges the plan for up to five rounds.
 6. Codex updates the plan or rejects weak critique with reasons.
 7. You sign off.
-8. Codex creates or links GitHub and Linear.
+8. Codex creates a private GitHub repo, Linear project, and first Linear issue by default.
 9. Codex executes from Linear issues.
 10. Codex updates `MEMORY.md` only when durable context changes.
+
+Say `local-only`, `basic`, `skip GitHub`, `skip Linear`, or `public GitHub repo` when you want a different path.
 
 ## The Planning Gate
 

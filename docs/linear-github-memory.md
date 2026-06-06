@@ -11,11 +11,15 @@ Every managed project keeps four fields visible:
 
 Linear is the source of truth for scope, acceptance criteria, priorities, and status.
 
+Managed projects create a Linear project and first issue by default unless the user opts out or links existing Linear records.
+
 Every issue creation or closure triggers a memory touch. Update `MEMORY.md` only if durable project context changed.
 
 ## GitHub
 
 GitHub is the source of truth for branches, pull requests, review, and shipped code.
+
+Managed projects create a private GitHub repo by default unless the user explicitly asks for public or links an existing repo.
 
 Branches and pull requests should reference the Linear issue when one exists.
 

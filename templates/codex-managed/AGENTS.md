@@ -10,12 +10,13 @@ This project is `[PROJECT NAME]` in `<PROJECTS_ROOT>/active/[FOLDER]`. Route her
 - Linear project: `[LINEAR URL OR Create/link required]`
 - Linear is the project-management source of truth for roadmap, issue scope, and acceptance criteria.
 - GitHub is the code and PR source of truth for branches, review, and shipped changes.
+- Managed setup creates a private GitHub repo, Linear project, and first Linear issue by default unless the user explicitly opts out or links existing records.
 - Codex is the executor for this project.
 - Claude is the devil's advocate for non-trivial planning.
 - Do not mirror `CLAUDE.md` from this file; keep `CLAUDE.md` critic-only.
 - At the start of every project task, check and stay aware of four fields: project folder, GitHub repo, Linear project, and Linear issue.
-- Before code work, say whether the GitHub repo and Linear project/issue are linked. If either is missing, ask whether to create or link it before implementation unless the user explicitly says the work is local-only.
-- Before non-trivial implementation, work from a Linear issue. If no issue exists, ask whether to create or link one.
+- Before code work, say whether the GitHub repo and Linear project/issue are linked. If either is missing, create/link it before implementation unless the user explicitly says the work is local-only.
+- Before non-trivial implementation, work from a Linear issue. If no issue exists, create or link one unless the user explicitly opts out.
 
 ## Planning Gate
 

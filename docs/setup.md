@@ -61,3 +61,5 @@ Open Codex in your Projects root and say:
 ```text
 Initiate a managed project for [idea]
 ```
+
+By default, a managed project creates a private GitHub repo, Linear project, and first Linear issue. You can opt out in the prompt.
