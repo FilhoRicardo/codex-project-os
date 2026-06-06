@@ -15,4 +15,5 @@ _None recorded yet._
 
 ## Durable Outcomes
 
-_None recorded yet._
+- Published the first public Codex Project OS template repo and marked it as a GitHub template.
+- Created and closed the initial maintainer Linear issue for publishing the framework.
