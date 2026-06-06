@@ -20,6 +20,7 @@ Active project folders live in `active/`. Before project work:
 - Before non-trivial code work, confirm GitHub and Linear linkage.
 - Use Linear for scope and acceptance criteria.
 - Use GitHub for branches, pull requests, and shipped code.
+- For managed code projects, set up Graphify after the repo exists and ignore rules protect secrets/local data.
 - Update project `MEMORY.md` when durable context changes.
 - Every Linear issue creation or closure requires a memory touch.
 
@@ -38,5 +39,6 @@ When creating a managed project, create:
 - `PLAN-REVIEW-LOG.md` for critique rounds.
 - `MEMORY.md` for durable context.
 - `resources/` for project-specific references.
+- Graphify support for managed code projects when useful.
 
 After creating the project, update this Routing Map and `PROJECTS.md`.

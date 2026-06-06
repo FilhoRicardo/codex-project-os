@@ -1,6 +1,6 @@
 ---
 name: project-initiator
-description: Initiate, scaffold, or repair Codex-managed projects in a Projects root workspace. Use when the user asks to create a new project, start a managed Codex project, set up project folders, add AGENTS.md/CLAUDE.md/MEMORY.md, link or check GitHub and Linear, create a first Linear issue, update PROJECTS.md, or make agents aware of a project's GitHub/Linear workflow.
+description: Initiate, scaffold, or repair Codex-managed projects in a Projects root workspace. Use when the user asks to create a new project, start a managed Codex project, set up project folders, add AGENTS.md/CLAUDE.md/MEMORY.md, link or check GitHub and Linear, create a first Linear issue, prepare Graphify project-map support, update PROJECTS.md, or make agents aware of a project's GitHub/Linear/Graphify workflow.
 ---
 
 # Project Initiator
@@ -25,6 +25,7 @@ Ask for missing values before creating files when they cannot be inferred safely
 - Template type: `codex-managed` by default, `codex-basic` for local experiments.
 - GitHub preference only when the default is wrong. Default for managed projects: create a private GitHub repo.
 - Linear preference only when the default is wrong. Default for managed projects: create a Linear project and first issue.
+- Graphify preference only when the default is wrong. Default for managed code projects: prepare Graphify after the repo exists and ignore rules are safe.
 
 ## Stage 0: Clarify And Challenge
 
@@ -50,20 +51,21 @@ Skip this stage only when the user explicitly says `local-only`, `basic`, or `sk
 8. For managed projects, create a private GitHub repo by default unless the user asked for public, existing repo, or local-only. Use the project folder slug as the default repo name.
 9. For managed projects, create a Linear project and first issue by default unless the user asked to link existing Linear records or skip Linear.
 10. If GitHub or Linear tools are unavailable, write `Create/link required` and state the blocker clearly; do not invent URLs.
-11. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
-12. Update the Routing Map in root `AGENTS.md`.
-13. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, key decisions, and constraints.
-14. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus the Routing Map.
+11. For managed code projects, add Graphify support after `.gitignore` protects secrets, logs, generated local data, and personal files. Use `scripts/setup-graphify.sh active/[folder]` when available; add `--build` only when code already exists and the safety check passes.
+12. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
+13. Update the Routing Map in root `AGENTS.md`.
+14. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, Graphify policy when relevant, key decisions, and constraints.
+15. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus the Routing Map.
 
 ## Repair Workflow
 
 Use this when a project already exists but is missing scaffold pieces:
 
 1. Inspect the project folder, git remote, local instructions, memory, and resources.
-2. Add only missing scaffold files or missing GitHub/Linear metadata.
+2. Add only missing scaffold files, missing GitHub/Linear metadata, or missing Graphify scaffold guidance.
 3. Preserve project-specific instructions; do not replace them with a generic template unless the user asks.
 4. Update `PROJECTS.md` and root Routing Maps.
-5. Call out remaining missing GitHub/Linear links.
+5. Call out remaining missing GitHub/Linear links or Graphify setup gaps.
 
 ## Linear And GitHub Rules
 
@@ -74,6 +76,14 @@ Use this when a project already exists but is missing scaffold pieces:
 - GitHub is the code and PR source of truth.
 - Linear is the roadmap, issue scope, and acceptance criteria source of truth.
 - If a link is missing, create or link it unless the user explicitly says the work is local-only.
+
+## Graphify Rules
+
+- Graphify is the optional project-map layer for managed code projects.
+- Set it up only after the GitHub repo exists and ignore rules protect secrets, logs, generated local data, and personal files.
+- When `graphify-out/graph.json` exists, agents should use `graphify query`, `graphify path`, or `graphify explain` before broad codebase exploration.
+- Build the first graph only when code already exists and the safety check passes; otherwise leave Graphify ready and mention it as pending.
+- Do not commit `graphify-out/cost.json` or `graphify-out/cache/`.
 
 ## Memory Rules
 
@@ -94,4 +104,5 @@ Finish only when:
 - `PROJECTS.md` has a current row.
 - Root `AGENTS.md` Routing Map includes the project.
 - Managed projects have GitHub/Linear links filled unless tool access failed or the user explicitly opted out; missing links are explicitly marked `Create/link required`.
+- Managed code projects either have Graphify ready, or the final response says why Graphify setup/build was skipped.
 - Project `MEMORY.md` has been updated, or the final response says why no durable memory update was needed.

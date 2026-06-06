@@ -26,6 +26,15 @@ This project is `[PROJECT NAME]` in `<PROJECTS_ROOT>/active/[FOLDER]`. Route her
 - Codex accepts useful critique, rejects weak critique with reasons, and logs the exchange in `PLAN-REVIEW-LOG.md`.
 - Code starts only after user signoff on the reviewed plan.
 
+## Graph Layer
+
+- Use Graphify for managed code projects once GitHub exists and `.gitignore` protects secrets, logs, generated local data, and personal files.
+- If `graphify-out/graph.json` exists and the user asks about architecture, data flow, dependencies, file relationships, or broad codebase behavior, run `graphify query "<question>"` before broad grep or raw file browsing.
+- Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts.
+- Read `graphify-out/GRAPH_REPORT.md` for broad architecture review when a query is not enough.
+- After meaningful code changes, run `graphify update .` when a graph already exists.
+- Do not build or update a graph until sensitive files are ignored. Never commit `graphify-out/cost.json` or `graphify-out/cache/`.
+
 ## Resources
 
 | Resource | Read when... |
@@ -37,10 +46,12 @@ This project is `[PROJECT NAME]` in `<PROJECTS_ROOT>/active/[FOLDER]`. Route her
 2. State assumptions, acceptance criteria, non-goals, and the narrowest useful verification check.
 3. Run the Planning Gate unless the work is trivial or the user explicitly skips it.
 4. Inspect git status before editing.
-5. Make the smallest change that satisfies the issue or explicit user request.
-6. Run the relevant verification check.
-7. Update `MEMORY.md` when durable project context changed.
-8. Summarize what changed, what passed, any missing Linear/GitHub linkage, and whether memory was updated.
+5. Use the Graph Layer for broad codebase questions when `graphify-out/graph.json` exists.
+6. Make the smallest change that satisfies the issue or explicit user request.
+7. Run the relevant verification check.
+8. Update Graphify when meaningful code changed and a graph exists.
+9. Update `MEMORY.md` when durable project context changed.
+10. Summarize what changed, what passed, any missing Linear/GitHub linkage, graph update status, and whether memory was updated.
 
 ## Memory Rules
 

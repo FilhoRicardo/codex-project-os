@@ -1,50 +1,52 @@
-# Plan: Publish Codex Project OS
+# Plan: Add Graphify Layer To Managed Projects
 
 ## Goal
 
-Publish a sanitized public framework repo that other people can copy to run AI-assisted projects with Codex as executor and Claude as critic.
+Add a lean Graphify knowledge-graph layer to Codex Project OS so managed code projects can maintain a queryable architecture map without making the scaffold heavy.
 
 ## Acceptance Criteria
 
-- Public GitHub repository exists at `FilhoRicardo/codex-project-os`.
-- Repo includes templates, skills, docs, examples, scripts, and MIT license.
-- No private project registry, personal memory, local private paths, or Linear URLs are published.
-- Skills validate with Codex skill validation.
-- Repo is marked as a GitHub template when supported.
+- Managed templates include Graphify-aware Codex and Claude instructions.
+- Project initiation guidance includes Graphify setup after GitHub/Linear and secret-ignore checks.
+- A small helper script installs Graphify and project-scoped agent support from a project root.
+- Docs explain the one-command setup, generated files, update flow, and safety rules.
+- The public `project-initiator` skill and the installed local copy are updated.
+- Skills validate and the public repo passes the private-string scan before push.
 
 ## Approach
 
-Create a clean active project, copy the generic scaffold pieces, sanitize local paths, write public docs, validate, create GitHub repo, push, and mark as template.
+Add a `docs/graphify.md` guide, a `scripts/setup-graphify.sh` helper, template Graph Layer sections, and concise project-initiator rules. Keep Graphify as an external dependency installed by command, not vendored code.
 
 ## Key Decisions And Tradeoffs
 
-- Publish as a template repo rather than pushing the real Projects folder.
-- Keep private Linear management local and out of the public repo.
-- Include skills as copyable Codex skill folders.
-- Managed project initiation creates GitHub and Linear records by default; GitHub visibility defaults to private for safety.
+- Graphify is optional-by-default for managed code projects: the scaffold knows how to use it, but basic/local-only projects are not forced into it.
+- Run secret and local-data ignore checks before generating or committing `graphify-out/`.
+- Commit durable graph artifacts when appropriate; ignore local cost/cache files.
+- Use Graphify queries for broad codebase questions when `graphify-out/graph.json` exists.
 
 ## Risks And Unknowns
 
-- Private strings could leak if copied files are not sanitized.
-- Claude CLI review may be unavailable due provider session limits.
-- GitHub template setting may require CLI support.
+- Graphify can surface local content, so projects with secrets or personal data need ignore checks first.
+- `graphify` install behavior may evolve, so the helper stays small and transparent.
+- Claude review is unavailable for this pass because the user reported being out of Claude credits.
 
 ## Out Of Scope
 
-- Publishing active project code.
-- Publishing private `PROJECTS.md` or root `MEMORY.md`.
-- Copying third-party repository content.
+- Vendoring Graphify.
+- Running Graphify across all existing active projects.
+- Making Graphify mandatory for basic/local-only projects.
+- Installing hooks automatically without user intent.
 
 ## Verification
 
-- Validate both skills.
+- Validate `skills/project-initiator`.
+- Validate `skills/claude-devil-review`.
+- Run shell syntax check on `scripts/setup-graphify.sh`.
 - Grep for private strings.
 - Inspect git diff before commit.
-- Verify GitHub repo after push.
 
 ## GitHub, Linear, And Memory Impact
 
-- Create public GitHub repo.
-- Create maintainer Linear project privately.
-- Update local root registry and memory.
-- Future managed projects should create a private GitHub repo, Linear project, and first Linear issue by default.
+- Linear issue: RF-79.
+- GitHub repo: public `FilhoRicardo/codex-project-os`.
+- Memory: update only with durable framework decision after implementation.

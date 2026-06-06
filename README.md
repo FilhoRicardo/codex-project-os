@@ -17,6 +17,7 @@ It separates the roles clearly:
 - `MEMORY.md` stores durable decisions, source links, constraints, and outcomes.
 - Linear tracks scope and acceptance criteria.
 - GitHub tracks branches, pull requests, and shipped code.
+- Graphify can provide a queryable project map for managed code projects.
 
 ## Included
 
@@ -24,6 +25,7 @@ It separates the roles clearly:
 - Basic and managed project templates.
 - Codex skill: `project-initiator`.
 - Codex skill: `claude-devil-review`.
+- Lean Graphify setup helper for managed code projects.
 - Setup and workflow docs.
 - A sample managed project.
 
@@ -56,6 +58,12 @@ Initiate a managed project for [your idea]
 
 Managed projects create a private GitHub repo, Linear project, and first Linear issue by default. Say `local-only`, `basic`, `skip GitHub`, `skip Linear`, or `public GitHub repo` when you want a different path.
 
+For managed code projects, add a queryable project graph after the repo and ignore rules are ready:
+
+```bash
+./scripts/setup-graphify.sh active/[project] --build
+```
+
 ## The Managed Project Shape
 
 ```text
@@ -66,6 +74,7 @@ active/[project]/
   PLAN-REVIEW-LOG.md
   MEMORY.md
   resources/
+  graphify-out/        optional, generated after code exists
 ```
 
 ## The Rule

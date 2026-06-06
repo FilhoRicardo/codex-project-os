@@ -33,6 +33,7 @@ Projects/
   CLAUDE.md
   MEMORY.md
   PROJECTS.md
+  scripts/setup-graphify.sh
   active/
   archive/
   resources/project-templates/
@@ -63,3 +64,13 @@ Initiate a managed project for [idea]
 ```
 
 By default, a managed project creates a private GitHub repo, Linear project, and first Linear issue. You can opt out in the prompt.
+
+## 5. Add Graphify To A Managed Code Project
+
+After the project has a repo and safe ignore rules:
+
+```bash
+./scripts/setup-graphify.sh active/[project] --build
+```
+
+Use `--hooks` only when you want Graphify to update after commits.

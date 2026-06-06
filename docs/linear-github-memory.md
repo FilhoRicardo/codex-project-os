@@ -7,6 +7,8 @@ Every managed project keeps four fields visible:
 - Linear project
 - Linear issue
 
+Managed code projects may also keep a Graphify graph once the repository and ignore rules are ready.
+
 ## Linear
 
 Linear is the source of truth for scope, acceptance criteria, priorities, and status.
@@ -35,3 +37,7 @@ Branches and pull requests should reference the Linear issue when one exists.
 - Handoff context
 
 It is not a task log and not a second issue tracker.
+
+## Graphify
+
+Graphify is the optional project-map layer. It is useful durable context only when the project first adopts it or changes its graph policy. Routine graph updates do not need memory entries.

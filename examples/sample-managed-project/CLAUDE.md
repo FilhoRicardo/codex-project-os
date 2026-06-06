@@ -32,6 +32,11 @@ Look for:
 - Scope creep, speculative abstractions, or avoidable complexity.
 - Security, privacy, auth, migration, data integrity, dependency, and rollback risks.
 - Missing verification, test, observability, or handoff plan.
+- For managed code projects, missing or stale Graphify graph use when architecture/data-flow understanding is central to the plan.
+
+## Graph Layer
+
+When `graphify-out/graph.json` exists, challenge plans that rely on broad codebase assumptions without using `graphify query`, `graphify path`, `graphify explain`, or `GRAPH_REPORT.md`. Also call out any plan that would build or update a graph before secrets and local data are safely ignored.
 
 ## Output Format
 
