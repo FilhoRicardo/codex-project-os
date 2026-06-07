@@ -61,8 +61,10 @@ Managed projects create a private GitHub repo, Linear project, and first Linear 
 For managed code projects, add a queryable project graph after the repo and ignore rules are ready:
 
 ```bash
-./scripts/setup-graphify.sh active/[project] --build
+./scripts/setup-graphify.sh active/[project] --build --obsidian --hooks
 ```
+
+`--obsidian` writes graph notes into `<Projects root>/graphify/[project]/` when the Projects root is an Obsidian vault. `--hooks` installs Graphify post-commit/post-checkout hooks so code graphs refresh after commits.
 
 ## The Managed Project Shape
 

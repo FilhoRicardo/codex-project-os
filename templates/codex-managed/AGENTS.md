@@ -33,6 +33,8 @@ This project is `[PROJECT NAME]` in `<PROJECTS_ROOT>/active/[FOLDER]`. Route her
 - Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts.
 - Read `graphify-out/GRAPH_REPORT.md` for broad architecture review when a query is not enough.
 - After meaningful code changes, run `graphify update .` when a graph already exists.
+- If `<PROJECTS_ROOT>/graphify/[FOLDER]/` exists, it is the Obsidian-native graph export for this project.
+- If Graphify hooks are installed, expect post-commit/post-checkout graph refreshes; inspect `~/.cache/graphify-rebuild.log` when a hook update appears to fail.
 - Do not build or update a graph until sensitive files are ignored. Never commit `graphify-out/cost.json` or `graphify-out/cache/`.
 
 ## Resources

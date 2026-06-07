@@ -25,7 +25,7 @@ Ask for missing values before creating files when they cannot be inferred safely
 - Template type: `codex-managed` by default, `codex-basic` for local experiments.
 - GitHub preference only when the default is wrong. Default for managed projects: create a private GitHub repo.
 - Linear preference only when the default is wrong. Default for managed projects: create a Linear project and first issue.
-- Graphify preference only when the default is wrong. Default for managed code projects: prepare Graphify after the repo exists and ignore rules are safe.
+- Graphify preference only when the default is wrong. Default for managed code projects: prepare Graphify after the repo exists and ignore rules are safe; when code exists, build the code graph, export Obsidian notes if the Projects root has `.obsidian`, and install Graphify git hooks.
 
 ## Stage 0: Clarify And Challenge
 
@@ -51,7 +51,7 @@ Skip this stage only when the user explicitly says `local-only`, `basic`, or `sk
 8. For managed projects, create a private GitHub repo by default unless the user asked for public, existing repo, or local-only. Use the project folder slug as the default repo name.
 9. For managed projects, create a Linear project and first issue by default unless the user asked to link existing Linear records or skip Linear.
 10. If GitHub or Linear tools are unavailable, write `Create/link required` and state the blocker clearly; do not invent URLs.
-11. For managed code projects, add Graphify support after `.gitignore` protects secrets, logs, generated local data, and personal files. Use `scripts/setup-graphify.sh active/[folder]` when available; add `--build` only when code already exists and the safety check passes.
+11. For managed code projects, add Graphify support after `.gitignore` protects secrets, logs, generated local data, and personal files. Use `scripts/setup-graphify.sh active/[folder] --hooks` when available; add `--build --obsidian` when code already exists, the safety check passes, and the Projects root is an Obsidian vault.
 12. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
 13. Update the Routing Map in root `AGENTS.md`.
 14. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, Graphify policy when relevant, key decisions, and constraints.
@@ -83,6 +83,8 @@ Use this when a project already exists but is missing scaffold pieces:
 - Set it up only after the GitHub repo exists and ignore rules protect secrets, logs, generated local data, and personal files.
 - When `graphify-out/graph.json` exists, agents should use `graphify query`, `graphify path`, or `graphify explain` before broad codebase exploration.
 - Build the first graph only when code already exists and the safety check passes; otherwise leave Graphify ready and mention it as pending.
+- In an Obsidian-backed Projects root, use `--obsidian` to export vault-local graph notes to `<PROJECTS_ROOT>/graphify/[folder]/`.
+- Use `--hooks` for managed code projects so Graphify refreshes the code graph after commits.
 - Do not commit `graphify-out/cost.json` or `graphify-out/cache/`.
 
 ## Memory Rules

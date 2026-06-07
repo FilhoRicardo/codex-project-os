@@ -12,6 +12,7 @@ Add a lean Graphify knowledge-graph layer to Codex Project OS so managed code pr
 - Docs explain the one-command setup, generated files, update flow, and safety rules.
 - The public `project-initiator` skill and the installed local copy are updated.
 - Skills validate and the public repo passes the private-string scan before push.
+- RF-82 adds Obsidian export and post-commit/post-checkout hook guidance.
 
 ## Approach
 
@@ -23,6 +24,8 @@ Add a `docs/graphify.md` guide, a `scripts/setup-graphify.sh` helper, template G
 - Run secret and local-data ignore checks before generating or committing `graphify-out/`.
 - Commit durable graph artifacts when appropriate; ignore local cost/cache files.
 - Use Graphify queries for broad codebase questions when `graphify-out/graph.json` exists.
+- Export Obsidian graph notes into `<Projects root>/graphify/[project]/` so Projects roots that are Obsidian vaults can read them without dirtying project repos or polluting the vault root.
+- Install native Graphify hooks when requested so code graphs update after commits.
 
 ## Risks And Unknowns
 
@@ -36,6 +39,7 @@ Add a `docs/graphify.md` guide, a `scripts/setup-graphify.sh` helper, template G
 - Running Graphify across all existing active projects.
 - Making Graphify mandatory for basic/local-only projects.
 - Installing hooks automatically without user intent.
+- Exporting generated Obsidian node notes into the public scaffold repo by default.
 
 ## Verification
 
@@ -48,5 +52,6 @@ Add a `docs/graphify.md` guide, a `scripts/setup-graphify.sh` helper, template G
 ## GitHub, Linear, And Memory Impact
 
 - Linear issue: RF-79.
+- Linear issue: RF-82.
 - GitHub repo: public `FilhoRicardo/codex-project-os`.
 - Memory: update only with durable framework decision after implementation.

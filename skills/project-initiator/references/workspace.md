@@ -51,7 +51,7 @@ Use this shape in root `AGENTS.md`:
 - GitHub visibility: private by default; public only when explicitly requested.
 - Linear team: use the configured/default team unless the user specifies another team.
 - First Linear issue title: `Initialize [Project Name]`.
-- Graphify setup: run `scripts/setup-graphify.sh active/[folder]` after ignore safety; add `--build` only when code exists.
+- Graphify setup: run `scripts/setup-graphify.sh active/[folder] --hooks` after ignore safety; add `--build --obsidian` when code exists and the Projects root is an Obsidian vault.
 
 ## Plan Discipline
 
