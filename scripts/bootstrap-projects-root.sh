@@ -17,6 +17,11 @@ cp "$REPO_ROOT/templates/projects-root/MEMORY.md" "$PROJECTS_ROOT/MEMORY.md"
 cp "$REPO_ROOT/templates/projects-root/PROJECTS.md" "$PROJECTS_ROOT/PROJECTS.md"
 cp "$REPO_ROOT/scripts/setup-graphify.sh" "$PROJECTS_ROOT/scripts/setup-graphify.sh"
 
+if [[ -d "$REPO_ROOT/resources/branding" ]]; then
+  mkdir -p "$PROJECTS_ROOT/resources/branding"
+  cp -R "$REPO_ROOT/resources/branding/." "$PROJECTS_ROOT/resources/branding/"
+fi
+
 rm -rf "$PROJECTS_ROOT/resources/project-templates/codex-basic" "$PROJECTS_ROOT/resources/project-templates/codex-managed"
 cp -R "$REPO_ROOT/templates/codex-basic" "$PROJECTS_ROOT/resources/project-templates/codex-basic"
 cp -R "$REPO_ROOT/templates/codex-managed" "$PROJECTS_ROOT/resources/project-templates/codex-managed"

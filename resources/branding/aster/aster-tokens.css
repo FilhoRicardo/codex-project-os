@@ -1,0 +1,152 @@
+/* ============================================================
+   ASTER — design tokens & utilities
+   Light glassmorphism · greyscale + deep forest-green · mono labels
+   Drop this file into any web project and import it:
+     <link rel="stylesheet" href="aster-tokens.css">
+   or @import "aster-tokens.css";
+   Then use the CSS variables + utility classes below.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* — Type — */
+  --aster-font-sans: 'Schibsted Grotesk', system-ui, sans-serif;
+  --aster-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* — Ink (greyscale, warm-neutral) — */
+  --aster-ink:        #1d2421; /* primary text */
+  --aster-ink-2:      #5a615b; /* secondary text */
+  --aster-ink-3:      #8a928d; /* labels */
+  --aster-ink-4:      #9aa19c; /* meta / placeholder */
+
+  /* — Green accent (the one accent) — */
+  --aster-green:        #13733f; /* solid text / numbers / icon */
+  --aster-green-deep:   #115c34; /* deepest, large numbers */
+  --aster-green-soft:   #5f9d79; /* muted label on green cards */
+  --aster-green-grad:   linear-gradient(180deg,#23a564,#13733f); /* buttons / active */
+  --aster-green-mark:   linear-gradient(150deg,#2bb172,#0f6b3f); /* logo / avatars */
+  --aster-green-tint:   rgba(20,120,72,0.10); /* highlighted fill */
+  --aster-green-line:   rgba(20,120,72,0.20); /* its border */
+
+  /* — Status (use sparingly) — */
+  --aster-amber:  #a9791f;  --aster-amber-fill:  rgba(208,150,52,0.13);
+  --aster-red:    #c2533f;  --aster-red-fill:    rgba(225,91,79,0.10);
+  --aster-blue:   #3f6fd0;  --aster-blue-fill:   rgba(91,141,239,0.10);
+  --aster-violet: #5b57b0;  --aster-violet-fill: rgba(110,106,194,0.14);
+
+  /* — Data-viz dots — */
+  --aster-dot-band:    #1b8a54;
+  --aster-dot-below:   #d8a23c;
+  --aster-dot-above:   #e15b4f;
+  --aster-dot-holiday: #5b8def;
+
+  /* — Glass — */
+  --aster-glass-bg:     rgba(255,255,255,0.46);
+  --aster-glass-bg-2:   rgba(255,255,255,0.55); /* inner non-blurred cards */
+  --aster-glass-border: rgba(255,255,255,0.55);
+  --aster-glass-hi:     inset 0 1px 0 rgba(255,255,255,0.80);
+  --aster-glass-shadow: 0 14px 40px rgba(20,40,30,0.09);
+  --aster-glass-blur:   blur(36px) saturate(1.8);
+  --aster-glass-blur-sm: blur(32px) saturate(1.8);
+
+  /* — Radius — */
+  --aster-r-row:   11px;
+  --aster-r-card:  16px;
+  --aster-r-panel: 18px;
+  --aster-r-pill:  9px;
+
+  /* — Shadow (buttons) — */
+  --aster-shadow-btn: 0 7px 16px rgba(16,96,60,0.30), inset 0 1px 0 rgba(255,255,255,0.32);
+
+  /* — Spacing scale — */
+  --aster-s1: 4px;  --aster-s2: 8px;  --aster-s3: 12px;
+  --aster-s4: 14px; --aster-s5: 18px; --aster-s6: 22px;
+}
+
+/* — The textured light backdrop the glass refracts. Apply to the app shell. — */
+.aster-bg {
+  background:
+    radial-gradient(820px 620px at 6% -12%, rgba(20,120,72,0.18), transparent 58%),
+    radial-gradient(760px 640px at 106% 112%, rgba(20,120,72,0.15), transparent 55%),
+    radial-gradient(620px 520px at 52% 128%, rgba(26,86,116,0.08), transparent 60%),
+    linear-gradient(180deg,#eef1ef,#e1e7e3);
+  color: var(--aster-ink);
+  font-family: var(--aster-font-sans);
+}
+
+/* — Glass surfaces — */
+.aster-glass {
+  background: var(--aster-glass-bg);
+  -webkit-backdrop-filter: var(--aster-glass-blur);
+  backdrop-filter: var(--aster-glass-blur);
+  border: 1px solid var(--aster-glass-border);
+  box-shadow: var(--aster-glass-hi), var(--aster-glass-shadow);
+  border-radius: var(--aster-r-panel);
+}
+.aster-glass--card {
+  -webkit-backdrop-filter: var(--aster-glass-blur-sm);
+  backdrop-filter: var(--aster-glass-blur-sm);
+  border-radius: var(--aster-r-card);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.78), 0 12px 32px rgba(20,40,30,0.08);
+}
+.aster-inner { /* non-blurred row/card sitting on glass */
+  background: var(--aster-glass-bg-2);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  border-radius: var(--aster-r-row);
+}
+
+/* — Type helpers — */
+.aster-mono   { font-family: var(--aster-font-mono); }
+.aster-eyebrow{
+  font-family: var(--aster-font-mono);
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--aster-ink-3);
+}
+.aster-eyebrow--green { color: var(--aster-green-soft); }
+.aster-stat { font-family: var(--aster-font-mono); font-weight: 700; color: var(--aster-green); }
+
+/* — Buttons — */
+.aster-btn {
+  font-family: var(--aster-font-sans); font-weight: 600; font-size: 13px;
+  padding: 10px 16px; border-radius: var(--aster-r-row);
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6); color: #2a312c;
+  cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: background .12s, color .12s;
+}
+.aster-btn--primary {
+  border: none; color: #fff;
+  background: var(--aster-green-grad);
+  box-shadow: var(--aster-shadow-btn);
+}
+.aster-btn--green-ghost {
+  border: 1px solid var(--aster-green-line);
+  background: var(--aster-green-tint); color: var(--aster-green);
+}
+
+/* — Badge / pill — */
+.aster-badge {
+  font-family: var(--aster-font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .06em; padding: 2px 6px; border-radius: 5px;
+  background: var(--aster-green-tint); color: var(--aster-green);
+}
+
+/* — Input — */
+.aster-input {
+  width: 100%; padding: 9px 11px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.55);
+  font-family: var(--aster-font-sans); font-size: 12.5px; color: var(--aster-ink);
+  outline: none; box-shadow: inset 0 1px 3px rgba(20,40,30,0.05);
+}
+.aster-input::placeholder { color: var(--aster-ink-4); }
+
+/* — Selected / active state — */
+.aster-selected {
+  background: rgba(20,120,72,0.13);
+  border: 1px solid rgba(20,120,72,0.42);
+  box-shadow: 0 4px 12px rgba(16,96,60,0.10), inset 0 1px 0 rgba(255,255,255,0.5);
+}

@@ -33,6 +33,7 @@ Projects/
   CLAUDE.md
   MEMORY.md
   PROJECTS.md
+  resources/branding/aster/
   scripts/setup-graphify.sh
   active/
   archive/
@@ -64,6 +65,8 @@ Initiate a managed project for [idea]
 ```
 
 By default, a managed project creates a private GitHub repo, Linear project, and first Linear issue. You can opt out in the prompt.
+
+For new app/frontend projects, Aster is the default design system. Agents should read `resources/branding/aster/BRAND.md` and copy or import `resources/branding/aster/aster-tokens.css` before UI work unless you provide a project-specific brand.
 
 ## 5. Add Graphify To A Managed Code Project
 

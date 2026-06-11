@@ -1,4 +1,4 @@
 interface:
   display_name: "Project Initiator"
-  short_description: "Start managed Codex projects with GitHub, Linear, and Graphify."
+  short_description: "Start managed Codex projects with GitHub, Linear, Aster, and Graphify."
   default_prompt: "Initiate a managed project for [idea]."

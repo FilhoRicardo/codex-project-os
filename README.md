@@ -18,6 +18,7 @@ It separates the roles clearly:
 - Linear tracks scope and acceptance criteria.
 - GitHub tracks branches, pull requests, and shipped code.
 - Graphify can provide a queryable project map for managed code projects.
+- Aster provides the default visual system for new app and frontend projects.
 
 ## Included
 
@@ -26,6 +27,7 @@ It separates the roles clearly:
 - Codex skill: `project-initiator`.
 - Codex skill: `claude-devil-review`.
 - Lean Graphify setup helper for managed code projects.
+- Aster brand/UI resource for consistent app interfaces.
 - Setup and workflow docs.
 - A sample managed project.
 
@@ -57,6 +59,8 @@ Initiate a managed project for [your idea]
 ```
 
 Managed projects create a private GitHub repo, Linear project, and first Linear issue by default. Say `local-only`, `basic`, `skip GitHub`, `skip Linear`, or `public GitHub repo` when you want a different path.
+
+New app/frontend projects use Aster by default. Read `resources/branding/aster/BRAND.md` and copy or import `resources/branding/aster/aster-tokens.css` before UI implementation, unless the project has its own explicit brand.
 
 For managed code projects, add a queryable project graph after the repo and ignore rules are ready:
 

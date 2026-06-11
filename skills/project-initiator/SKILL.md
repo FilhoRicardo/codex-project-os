@@ -1,6 +1,6 @@
 ---
 name: project-initiator
-description: Initiate, scaffold, or repair Codex-managed projects in a Projects root workspace. Use when the user asks to create a new project, start a managed Codex project, set up project folders, add AGENTS.md/CLAUDE.md/MEMORY.md, link or check GitHub and Linear, create a first Linear issue, prepare Graphify project-map support, update PROJECTS.md, or make agents aware of a project's GitHub/Linear/Graphify workflow.
+description: Initiate, scaffold, or repair Codex-managed projects in a Projects root workspace. Use when the user asks to create a new project, start a managed Codex project, set up project folders, add AGENTS.md/CLAUDE.md/MEMORY.md, link or check GitHub and Linear, create a first Linear issue, apply the Aster app design system, prepare Graphify project-map support, update PROJECTS.md, or make agents aware of a project's GitHub/Linear/Graphify workflow.
 ---
 
 # Project Initiator
@@ -25,6 +25,7 @@ Ask for missing values before creating files when they cannot be inferred safely
 - Template type: `codex-managed` by default, `codex-basic` for local experiments.
 - GitHub preference only when the default is wrong. Default for managed projects: create a private GitHub repo.
 - Linear preference only when the default is wrong. Default for managed projects: create a Linear project and first issue.
+- Branding preference only when the default is wrong. Default for app/frontend projects: use Aster from `<PROJECTS_ROOT>/resources/branding/aster`.
 - Graphify preference only when the default is wrong. Default for managed code projects: prepare Graphify after the repo exists and ignore rules are safe; when code exists, build the code graph, export Obsidian notes if the Projects root has `.obsidian`, and install Graphify git hooks.
 
 ## Stage 0: Clarify And Challenge
@@ -51,11 +52,12 @@ Skip this stage only when the user explicitly says `local-only`, `basic`, or `sk
 8. For managed projects, create a private GitHub repo by default unless the user asked for public, existing repo, or local-only. Use the project folder slug as the default repo name.
 9. For managed projects, create a Linear project and first issue by default unless the user asked to link existing Linear records or skip Linear.
 10. If GitHub or Linear tools are unavailable, write `Create/link required` and state the blocker clearly; do not invent URLs.
-11. For managed code projects, add Graphify support after `.gitignore` protects secrets, logs, generated local data, and personal files. Use `scripts/setup-graphify.sh active/[folder] --hooks` when available; add `--build --obsidian` when code already exists, the safety check passes, and the Projects root is an Obsidian vault.
-12. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
-13. Update the Routing Map in root `AGENTS.md`.
-14. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, Graphify policy when relevant, key decisions, and constraints.
-15. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus the Routing Map.
+11. For app/frontend projects, keep or add Aster guidance in `AGENTS.md`: read `<PROJECTS_ROOT>/resources/branding/aster/BRAND.md` and copy/import `aster-tokens.css` unless the user explicitly provides a project-specific brand.
+12. For managed code projects, add Graphify support after `.gitignore` protects secrets, logs, generated local data, and personal files. Use `scripts/setup-graphify.sh active/[folder] --hooks` when available; add `--build --obsidian` when code already exists, the safety check passes, and the Projects root is an Obsidian vault.
+13. Update `PROJECTS.md` with folder, instruction files, GitHub, Linear, and status.
+14. Update the Routing Map in root `AGENTS.md`.
+15. Update project `MEMORY.md` with durable setup facts: GitHub repo, Linear project, first issue, Aster policy for app/frontend UI when relevant, Graphify policy when relevant, key decisions, and constraints.
+16. Verify the scaffold by listing the created files and checking `PROJECTS.md` plus the Routing Map.
 
 ## Repair Workflow
 
@@ -63,9 +65,10 @@ Use this when a project already exists but is missing scaffold pieces:
 
 1. Inspect the project folder, git remote, local instructions, memory, and resources.
 2. Add only missing scaffold files, missing GitHub/Linear metadata, or missing Graphify scaffold guidance.
-3. Preserve project-specific instructions; do not replace them with a generic template unless the user asks.
-4. Update `PROJECTS.md` and root Routing Maps.
-5. Call out remaining missing GitHub/Linear links or Graphify setup gaps.
+3. For app/frontend projects, add missing Aster guidance unless the project already has an explicit brand.
+4. Preserve project-specific instructions; do not replace them with a generic template unless the user asks.
+5. Update `PROJECTS.md` and root Routing Maps.
+6. Call out remaining missing GitHub/Linear links, Aster guidance, or Graphify setup gaps.
 
 ## Linear And GitHub Rules
 
@@ -87,6 +90,13 @@ Use this when a project already exists but is missing scaffold pieces:
 - Use `--hooks` for managed code projects so Graphify refreshes the code graph after commits.
 - Do not commit `graphify-out/cost.json` or `graphify-out/cache/`.
 
+## Aster Design Rules
+
+- Aster is the default visual system for app/frontend projects unless the user explicitly provides a project-specific brand.
+- The Projects-root source is `<PROJECTS_ROOT>/resources/branding/aster/BRAND.md` plus `aster-tokens.css`.
+- Project `AGENTS.md` should tell future agents to read `BRAND.md` before UI work and copy/import `aster-tokens.css` into the app style layer.
+- Do not duplicate user-specific logo assets into public templates or public repositories unless the user explicitly asks.
+
 ## Memory Rules
 
 - Read project `MEMORY.md` at the start of project work.
@@ -106,5 +116,6 @@ Finish only when:
 - `PROJECTS.md` has a current row.
 - Root `AGENTS.md` Routing Map includes the project.
 - Managed projects have GitHub/Linear links filled unless tool access failed or the user explicitly opted out; missing links are explicitly marked `Create/link required`.
+- App/frontend projects include Aster guidance unless the user explicitly provided another brand.
 - Managed code projects either have Graphify ready, or the final response says why Graphify setup/build was skipped.
 - Project `MEMORY.md` has been updated, or the final response says why no durable memory update was needed.

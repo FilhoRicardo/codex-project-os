@@ -32,6 +32,7 @@ Look for:
 - Scope creep, speculative abstractions, or avoidable complexity.
 - Security, privacy, auth, migration, data integrity, dependency, and rollback risks.
 - Missing verification, test, observability, or handoff plan.
+- For app/frontend projects, missing Aster usage or missing rationale for an explicit project-specific brand.
 - For managed code projects, missing or stale Graphify graph use when architecture/data-flow understanding is central to the plan.
 
 ## Graph Layer

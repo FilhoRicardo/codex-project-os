@@ -9,6 +9,7 @@
 - Templates:
   - Basic: `<PROJECTS_ROOT>/resources/project-templates/codex-basic`
   - Managed: `<PROJECTS_ROOT>/resources/project-templates/codex-managed`
+- Aster brand resource: `<PROJECTS_ROOT>/resources/branding/aster`
 - Voice principles: `<PROJECTS_ROOT>/resources/voice-principles.md`
 - Graphify setup helper: `<PROJECTS_ROOT>/scripts/setup-graphify.sh`
 - Codex skill for Claude challenge loop: `<CODEX_SKILLS_ROOT>/claude-devil-review`
@@ -41,6 +42,7 @@ Use this shape in root `AGENTS.md`:
 - Do not invent GitHub or Linear URLs.
 - Do not copy root `MEMORY.md` into projects.
 - Managed projects create a private GitHub repo and Linear project by default.
+- App/frontend projects use Aster by default unless the user explicitly provides another brand.
 - Managed code projects prepare Graphify after GitHub exists and ignore rules are safe.
 - Use `Create/link required` only when tool access fails, the user explicitly opts out, or an existing external record must be linked later.
 - Keep changes surgical: template copy, placeholder replacement, registry row, Routing Map row.
@@ -51,6 +53,7 @@ Use this shape in root `AGENTS.md`:
 - GitHub visibility: private by default; public only when explicitly requested.
 - Linear team: use the configured/default team unless the user specifies another team.
 - First Linear issue title: `Initialize [Project Name]`.
+- Aster design system: read `<PROJECTS_ROOT>/resources/branding/aster/BRAND.md` and copy/import `aster-tokens.css` for app/frontend UI unless an explicit project brand overrides it.
 - Graphify setup: run `scripts/setup-graphify.sh active/[folder] --hooks` after ignore safety; add `--build --obsidian` when code exists and the Projects root is an Obsidian vault.
 
 ## Plan Discipline

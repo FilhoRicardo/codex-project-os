@@ -37,10 +37,19 @@ This project is `Sample Managed Project` in `<PROJECTS_ROOT>/active/sample-manag
 - If Graphify hooks are installed, expect post-commit/post-checkout graph refreshes; inspect `~/.cache/graphify-rebuild.log` when a hook update appears to fail.
 - Do not build or update a graph until sensitive files are ignored. Never commit `graphify-out/cost.json` or `graphify-out/cache/`.
 
+## App Design System
+
+- For any app or frontend UI, use Aster by default unless the user explicitly provides a project-specific brand.
+- Before UI work, read `<PROJECTS_ROOT>/resources/branding/aster/BRAND.md`.
+- Copy or import `<PROJECTS_ROOT>/resources/branding/aster/aster-tokens.css` into the app style layer and build with its tokens/utilities.
+- Do not invent a new palette, font pairing, glass recipe, shadow stack, or decorative gradient for app UI. If you must deviate, record the reason in `PLAN.md` or `MEMORY.md`.
+
 ## Resources
 
 | Resource | Read when... |
 |---|---|
+| `<PROJECTS_ROOT>/resources/branding/aster/BRAND.md` | Building or changing app/frontend UI. |
+| `<PROJECTS_ROOT>/resources/branding/aster/aster-tokens.css` | Implementing the app theme, CSS tokens, or reusable UI surfaces. |
 
 ## Workflow
 
@@ -49,11 +58,12 @@ This project is `Sample Managed Project` in `<PROJECTS_ROOT>/active/sample-manag
 3. Run the Planning Gate unless the work is trivial or the user explicitly skips it.
 4. Inspect git status before editing.
 5. Use the Graph Layer for broad codebase questions when `graphify-out/graph.json` exists.
-6. Make the smallest change that satisfies the issue or explicit user request.
-7. Run the relevant verification check.
-8. Update Graphify when meaningful code changed and a graph exists.
-9. Update `MEMORY.md` when durable project context changed.
-10. Summarize what changed, what passed, any missing Linear/GitHub linkage, graph update status, and whether memory was updated.
+6. Apply the App Design System before app/frontend UI implementation unless a project-specific brand overrides it.
+7. Make the smallest change that satisfies the issue or explicit user request.
+8. Run the relevant verification check.
+9. Update Graphify when meaningful code changed and a graph exists.
+10. Update `MEMORY.md` when durable project context changed.
+11. Summarize what changed, what passed, any missing Linear/GitHub linkage, graph update status, and whether memory was updated.
 
 ## Memory Rules
 
