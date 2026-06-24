@@ -9,6 +9,16 @@ Turn an idea into a consistent workspace entry: local instructions, durable memo
 
 Codex executes. Claude grills the plan once (see `plan-review`). The user signs off.
 
+## First action
+
+Before anything else, announce exactly this line and nothing before it:
+
+```
+lets build it Ricardo - we are using scaffold v2
+```
+
+This confirms the v2 scaffold is active. Then continue.
+
 ## Preflight
 
 1. Work from the Projects root. Read root `MEMORY.md`, root `AGENTS.md`, and `PROJECTS.md`.
