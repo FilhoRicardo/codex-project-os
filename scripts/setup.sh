@@ -9,9 +9,10 @@ install_skills() {
   local dest="$1"
   [ -z "$dest" ] && return 0
   mkdir -p "$dest"
-  for skill in project-new plan-review; do
+  for skill_dir in "$REPO_DIR"/skills/*/; do
+    skill="$(basename "$skill_dir")"
     rm -rf "${dest:?}/$skill"
-    cp -R "$REPO_DIR/skills/$skill" "$dest/$skill"
+    cp -R "$skill_dir" "$dest/$skill"
     echo "  installed $skill -> $dest/$skill"
   done
 }

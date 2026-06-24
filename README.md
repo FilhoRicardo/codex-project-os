@@ -13,7 +13,13 @@ A **lean** operating system for AI-assisted projects. Codex executes. Claude gri
 | Bespoke Graphify code-map, hand-maintained | `codebase-memory-mcp` — one binary, ~120× fewer tokens for structural queries |
 | `MEMORY.md` narrated code structure | `MEMORY.md` holds durable human decisions only; the graph holds structure |
 
-Patterns borrowed from [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) (progressive disclosure, plugin packaging), [mattpocock/skills](https://github.com/mattpocock/skills) (small composable skills, planning-time grilling), and [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) (code indexing).
+## What's incorporated from the three repos
+
+- **[DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** — the code-indexing dependency (replaces Graphify). Wired into `project-new` and `setup.sh`.
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — three lifecycle skills vendored faithfully: `spec-driven-development`, `incremental-implementation`, `shipping-and-launch`. Plus the progressive-disclosure + plugin-packaging patterns.
+- **[mattpocock/skills](https://github.com/mattpocock/skills)** — the one-question-at-a-time `grilling` pattern, folded into `plan-review`.
+
+Vendored skills are model-invoked on demand, so they add capability without bloating base context. Full attribution in [NOTICE.md](NOTICE.md).
 
 ## The three pillars (kept, improved)
 
@@ -41,12 +47,16 @@ Start a managed project for <your idea>
 
 ```
 skills/
-  project-new/    SKILL.md + references/  (create, repair, linear, memory-and-indexing)
-  plan-review/    SKILL.md + references/  (loop)  — planning gate only
+  project-new/                 your scaffolding skill (thin + references/)
+  plan-review/                 planning-gate grilling + Claude critique
+  spec-driven-development/     vendored from agent-skills (on demand)
+  incremental-implementation/  vendored from agent-skills (on demand)
+  shipping-and-launch/         vendored from agent-skills (on demand)
 templates/
   managed/  basic/  projects-root/
-scripts/setup.sh
+scripts/setup.sh               installs every skill in skills/
 docs/  setup.md  workflow.md  memory-and-indexing.md
+NOTICE.md                      attribution for vendored work
 ```
 
 ## The rule
