@@ -2,20 +2,20 @@
 
 A **lean** operating system for AI-assisted projects. Codex executes. Claude grills the plan **once**. Linear tracks scope. `codebase-memory-mcp` indexes the code. Memory keeps the few decisions a graph can't infer.
 
-> v3. The original version grilled every non-trivial decision through a 5-round Claude loop and loaded a 120-line skill on every trigger — it burned tokens fast. v2 stripped that down; v3 adds a hand-picked set of vendored lifecycle skills and the grilling interview. The scaffold keeps the parts that mattered (planning rigor, Linear, memory/indexing) and cuts the rest.
+> v4. The original version grilled every non-trivial decision through a 5-round Claude loop and loaded a 120-line skill on every trigger — it burned tokens fast. v2 stripped that down; v3 added a hand-picked set of vendored lifecycle skills and the grilling interview; v4 retires the bespoke code-map layer entirely in favour of `codebase-memory-mcp`. The scaffold keeps the parts that mattered (planning rigor, Linear, memory/indexing) and cuts the rest.
 
-## What changed (v1 → v3)
+## What changed (v1 → v4)
 
-| Problem (v1) | Fix (v3) |
+| Problem (v1) | Fix (v4) |
 |---|---|
 | `claude-devil-review` fired before features, issues, schemas, auth, migrations — up to 5 rounds each | `plan-review` fires **only at the planning gate**, single pass by default (cap 3) |
 | 121-line `project-initiator` SKILL loaded entirely on every trigger | Thin `SKILL.md` (~35 lines) + `references/` loaded on demand |
-| Bespoke Graphify code-map, hand-maintained | `codebase-memory-mcp` — one binary, ~120× fewer tokens for structural queries |
+| Bespoke hand-maintained code-map | `codebase-memory-mcp` — one binary, ~120× fewer tokens for structural queries |
 | `MEMORY.md` narrated code structure | `MEMORY.md` holds durable human decisions only; the graph holds structure |
 
 ## What's incorporated from the three repos
 
-- **[DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** — the code-indexing dependency (replaces Graphify). Wired into `project-new` and `setup.sh`.
+- **[DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** — the code-indexing dependency. Wired into `project-new` and `setup.sh`.
 - **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — three lifecycle skills vendored faithfully: `spec-driven-development`, `incremental-implementation`, `shipping-and-launch`. Plus the progressive-disclosure + plugin-packaging patterns.
 - **[mattpocock/skills](https://github.com/mattpocock/skills)** — the one-question-at-a-time `grilling` pattern, folded into `plan-review`.
 

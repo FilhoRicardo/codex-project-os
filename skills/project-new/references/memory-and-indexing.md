@@ -3,9 +3,9 @@
 Two layers, kept separate so neither bloats:
 
 1. **`MEMORY.md`** — durable *human* decisions, in prose. Small on purpose.
-2. **`codebase-memory-mcp`** — the *code* knowledge graph. Replaces hand-written code maps (the old Graphify layer).
+2. **`codebase-memory-mcp`** — the *code* knowledge graph. Replaces hand-written code maps.
 
-## codebase-memory-mcp (replaces Graphify)
+## codebase-memory-mcp
 
 A single static binary that indexes the repo into a queryable knowledge graph — ~120× fewer tokens for structural questions than file-by-file grep/read. It auto-detects Codex CLI and Claude Code and wires up the MCP entry for you.
 

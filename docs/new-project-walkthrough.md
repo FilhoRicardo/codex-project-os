@@ -1,13 +1,13 @@
 # What happens when a new project is created
 
-This walks through every step the agent takes when you start a new managed project under scaffold **v3**. Run it by invoking the `project-new` skill — e.g. "Start a managed project for &lt;idea&gt;".
+This walks through every step the agent takes when you start a new managed project under scaffold **v4**. Run it by invoking the `project-new` skill — e.g. "Start a managed project for &lt;idea&gt;".
 
 ## 0. Announcement
 
 The agent's first line is exactly:
 
 ```
-lets build it Ricardo - we are using v3 now
+lets build it Ricardo - we are using v4 now
 ```
 
 If you don't see it, something is loading the old path — stop and check which skills are installed.
@@ -31,7 +31,7 @@ For managed projects, before any code:
 4. Codex revises the plan, logging what it accepted and rejected (with reasons).
 5. **You sign off.** No code starts until you do.
 
-This gate runs **once per plan** — never per feature, issue, or routine decision. That bound is the whole reason v3 is cheap to run.
+This gate runs **once per plan** — never per feature, issue, or routine decision. That bound is the whole reason v4 is cheap to run.
 
 Skip the gate only if you say `basic`, `local-only`, or `skip review`.
 

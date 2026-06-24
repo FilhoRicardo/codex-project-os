@@ -1,5 +1,5 @@
 {
   "name": "codex-project-os",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Lean project creation + management OS for Codex and Claude. Plan-gate grilling only, Linear tracking, codebase-memory-mcp indexing."
 }

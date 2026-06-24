@@ -22,7 +22,7 @@ Key MCP tools agents should reach for before broad exploration:
 
 Install: `curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash`, then "Index this project".
 
-**Visualizing the graph:** the MCP ships a 3D web UI at `localhost:9749` (install with `--ui`). This replaces the old Graphify Obsidian-vault canvas export — there is no vault note output. Note also that the MCP indexes code structure only (158 code languages + Dockerfiles/K8s), not prose docs, papers, or images.
+**Visualizing the graph:** the MCP ships a 3D web UI at `localhost:9749` (install with `--ui`). There is no Obsidian vault note output. Note also that the MCP indexes code structure only (158 code languages + Dockerfiles/K8s), not prose docs, papers, or images.
 
 ## Why the split
 
