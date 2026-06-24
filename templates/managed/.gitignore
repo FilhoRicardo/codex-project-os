@@ -1,0 +1,15 @@
+# Secrets & env
+.env
+.env.*
+*.local
+
+# Logs & generated
+*.log
+node_modules/
+dist/
+build/
+.DS_Store
+
+# codebase-memory-mcp local index cache
+.cbm/
+.codebase-memory/

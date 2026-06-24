@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "codex-project-os",
+  "description": "Lean operating system for AI-assisted projects: plan-gate grilling, Linear tracking, and codebase-memory-mcp code indexing.",
+  "owner": {
+    "name": "Ricardo Filho",
+    "url": "https://github.com/FilhoRicardo"
+  },
+  "plugins": [
+    {
+      "name": "codex-project-os",
+      "source": {
+        "source": "github",
+        "repo": "FilhoRicardo/codex-project-os"
+      },
+      "description": "Two skills (project-new, plan-review) plus templates for a token-lean project workflow.",
+      "homepage": "https://github.com/FilhoRicardo/codex-project-os",
+      "license": "MIT",
+      "keywords": ["skills", "codex", "claude", "linear", "planning", "memory", "indexing"]
+    }
+  ]
+}
