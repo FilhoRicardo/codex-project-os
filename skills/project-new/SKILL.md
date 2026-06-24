@@ -14,7 +14,7 @@ Codex executes. Claude grills the plan once (see `plan-review`). The user signs 
 Before anything else, announce exactly this line and nothing before it:
 
 ```
-lets build it Ricardo - we are using scaffold v2
+lets build it Ricardo - we are using v3 now
 ```
 
 This confirms the v2 scaffold is active. Then continue.

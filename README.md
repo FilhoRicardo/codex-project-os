@@ -2,11 +2,11 @@
 
 A **lean** operating system for AI-assisted projects. Codex executes. Claude grills the plan **once**. Linear tracks scope. `codebase-memory-mcp` indexes the code. Memory keeps the few decisions a graph can't infer.
 
-> v2 rebuild. The previous version grilled every non-trivial decision through a 5-round Claude loop and loaded a 120-line skill on every trigger — it burned tokens fast. This version keeps the parts that mattered (planning rigor, Linear, memory/indexing) and cuts the rest.
+> v3. The original version grilled every non-trivial decision through a 5-round Claude loop and loaded a 120-line skill on every trigger — it burned tokens fast. v2 stripped that down; v3 adds a hand-picked set of vendored lifecycle skills and the grilling interview. The scaffold keeps the parts that mattered (planning rigor, Linear, memory/indexing) and cuts the rest.
 
-## What changed in v2
+## What changed (v1 → v3)
 
-| Problem (v1) | Fix (v2) |
+| Problem (v1) | Fix (v3) |
 |---|---|
 | `claude-devil-review` fired before features, issues, schemas, auth, migrations — up to 5 rounds each | `plan-review` fires **only at the planning gate**, single pass by default (cap 3) |
 | 121-line `project-initiator` SKILL loaded entirely on every trigger | Thin `SKILL.md` (~35 lines) + `references/` loaded on demand |
@@ -56,8 +56,13 @@ templates/
   managed/  basic/  projects-root/
 scripts/setup.sh               installs every skill in skills/
 docs/  setup.md  workflow.md  memory-and-indexing.md
+       new-project-walkthrough.md   step-by-step of a new project
 NOTICE.md                      attribution for vendored work
 ```
+
+## What happens when you start a project
+
+See [docs/new-project-walkthrough.md](docs/new-project-walkthrough.md) for the full step-by-step: announcement → preflight → planning gate (grill + critique + signoff) → scaffold → Linear/GitHub → indexing → registration → build.
 
 ## The rule
 
